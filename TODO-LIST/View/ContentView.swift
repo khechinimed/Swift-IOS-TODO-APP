@@ -24,17 +24,13 @@ struct ContentView: View {
                 .ignoresSafeArea()
             VStack{
                 Spacer()
-                SignInWithAppleButton{request in
-                    signinViewModel.SigninWithAppleRequest(request: request)
-                } onCompletion: { result in
-                    signinViewModel.SigninWithAppleCompletion(result)
-                }
+                
                 .frame(width: 300, height: 50)
                 .cornerRadius(10)
             }
             
         }
-        .background(Color("Color"))
+        .background(Color("white"))
     }
     
 }

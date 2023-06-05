@@ -10,9 +10,14 @@ class SigninViewModel: ObservableObject {
     @Published var nonce = ""
     
     func SigninWithAppleRequest(request: ASAuthorizationOpenIDRequest) {
+        @Published var todoList:[ToDoModel] = []
         nonce = randomNonceString()
         request.requestedScopes = [.fullName, .email]
         request.nonce = sha256(nonce)
+    }
+    
+    init(){
+        FetchData()
     }
     
     func SigninWithAppleCompletion(_ result: Result<ASAuthorization, Error>) {
@@ -81,3 +86,5 @@ func randomNonceString(length: Int = 32) -> String {
 
     return String(nonce)
 }
+
+
