@@ -38,11 +38,13 @@ struct  TaskView: View {
                             .font(.title)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
+                            .padding(.vertical, 30)
                     })
                     
                 }
+                Spacer()
                 ScrollView{
-                    ForEach(SigninViewModel.todoList){_ in
+                    ForEach(signinViewmodel.todoList){items in
                         VStack(alignment: .leading, spacing: 10){
                             Button(action: {
                                 
@@ -53,6 +55,7 @@ struct  TaskView: View {
                                         .font(.title2)
                                         .fontWeight(.bold)
                                         .padding(.horizontal, 5)
+                                        .padding(.vertical, 3)
                                     Text(items.title)
                                         .font(.title2)
                                         .fontWeight(.bold)

@@ -6,19 +6,21 @@ import FirebaseFirestore
 import AuthenticationServices
 
 class SigninViewModel: ObservableObject {
+    @Published var todoList:[ToDoModel] = []
     @AppStorage("log_State") var log_State = false
     @Published var nonce = ""
+    @Published var done = false
+    init(){
+        FetchData()
+    }
     
     func SigninWithAppleRequest(request: ASAuthorizationOpenIDRequest) {
-        @Published var todoList:[ToDoModel] = []
+        
         nonce = randomNonceString()
         request.requestedScopes = [.fullName, .email]
         request.nonce = sha256(nonce)
     }
     
-    init(){
-        FetchData()
-    }
     
     func SigninWithAppleCompletion(_ result: Result<ASAuthorization, Error>) {
         switch result {
@@ -85,6 +87,48 @@ func randomNonceString(length: Int = 32) -> String {
     }
 
     return String(nonce)
+}
+
+extension SigninViewModel{
+    func UpdateTask(update:ToDoModel){
+        let db = Firestore.firestore()
+        if update.done{
+            db.collection("Task").document(update.id).setData(["done": false], merge: true) { error in
+                if error == nil{
+                    withAnimation{
+                        self.FetchData()
+                        
+                    }
+                }
+            }
+        }else{
+            db.collection("Task").document(update.id).setData(["done": false], merge: true) { error in
+                if error == nil{
+                    withAnimation{
+                        self.FetchData()
+                        
+                    }
+                }
+            }
+        }
+    }
+    
+    func FetchData(){
+        let db = Firestore.firestore()
+        
+        db.collection("Task").getDocuments{ snapshot, error in
+            guard error == nil else{
+                print("\(String(describing: error?.localizedDescription))")
+                return
+            }
+            
+            if let snapshot = snapshot{
+                self.todoList = snapshot.documents.map{data in
+                    return ToDoModel(id: data.documentID, done: data["done"] as? Bool ?? false, title: data["title"] as? String ?? "")
+                }
+            }
+        }
+    }
 }
 
 
