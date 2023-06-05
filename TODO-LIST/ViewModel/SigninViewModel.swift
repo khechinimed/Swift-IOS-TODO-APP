@@ -102,7 +102,7 @@ extension SigninViewModel{
                 }
             }
         }else{
-            db.collection("Task").document(update.id).setData(["done": false], merge: true) { error in
+            db.collection("Task").document(update.id).setData(["done": true], merge: true) { error in
                 if error == nil{
                     withAnimation{
                         self.FetchData()

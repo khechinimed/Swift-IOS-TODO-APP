@@ -47,11 +47,11 @@ struct  TaskView: View {
                     ForEach(signinViewmodel.todoList){items in
                         VStack(alignment: .leading, spacing: 10){
                             Button(action: {
-                                
+                                signinViewmodel.UpdateTask(update: items)
                             }, label: {
                                 HStack{
-                                    Image(systemName: "circle")
-                                        .foregroundColor(.white)
+                                    Image(systemName:items.done ? "checkmark.circle": "circle")
+                                        .foregroundColor(items.done ? .green: .white)
                                         .font(.title2)
                                         .fontWeight(.bold)
                                         .padding(.horizontal, 5)
@@ -74,7 +74,9 @@ struct  TaskView: View {
                                     }
                                 }
                                 
-                                
+                                .frame(height: 60)
+                                .frame(maxWidth: .infinity)
+                                .background(.ultraThinMaterial.opacity(0.6))
                             })
                         }
                     }
