@@ -61,7 +61,20 @@ struct  TaskView: View {
                                         .fontWeight(.bold)
                                         .foregroundColor(.white)
                                     Spacer()
+                                    if Delet{
+                                        Button(action: {
+                                            signinViewmodel.DeletTask(toDelet: items)
+                                        }, label: {
+                                            Image(systemName: "minus.circle.fill")
+                                                .foregroundColor(.red)
+                                                .font(.title2)
+                                                .fontWeight(.bold)
+                                        })
+                                        .padding(.horizontal, 5)
+                                    }
                                 }
+                                
+                                
                             })
                         }
                     }
