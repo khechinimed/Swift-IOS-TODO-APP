@@ -113,6 +113,19 @@ extension SigninViewModel{
         }
     }
     
+    func DeletTask(toDelet: ToDoModel) {
+        let db = Firestore.firestore()
+        
+        db.collection("Task").document(toDelet.id).delete { error in
+            if let error = error {
+                print("Error deleting task: \(error.localizedDescription)")
+            } else {
+                print("Task deleted successfully.")
+            }
+        }
+    }
+    
+    
     func FetchData(){
         let db = Firestore.firestore()
         
