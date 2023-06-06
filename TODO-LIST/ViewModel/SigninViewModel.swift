@@ -1,3 +1,10 @@
+//
+//  SigninViewModel.swift
+//  TODO-LIST
+//
+//  Created by Mohamed Khechini on 04/06/2023.
+//
+
 import SwiftUI
 import Foundation
 import Firebase
@@ -124,6 +131,24 @@ extension SigninViewModel{
             }
         }
     }
+    
+    func SaveTask(title: String, done: Bool) {
+            let db = Firestore.firestore()
+            
+            let taskData: [String: Any] = [
+                "title": title,
+                "done": done
+            ]
+            
+            db.collection("Task").addDocument(data: taskData) { error in
+                if let error = error {
+                    print("Error saving task: \(error.localizedDescription)")
+                } else {
+                    print("Task saved successfully.")
+                    self.FetchData() // Refresh the task list after saving
+                }
+            }
+        }
     
     
     func FetchData(){
