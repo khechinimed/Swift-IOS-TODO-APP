@@ -35,7 +35,7 @@ struct  TaskView: View {
                     Spacer()
                     
                 }
-                Spacer()
+
                 ScrollView{
                     ForEach(signinViewmodel.todoList){items in
                         VStack(alignment: .leading, spacing: 10){
@@ -47,7 +47,7 @@ struct  TaskView: View {
                                         .foregroundColor(items.done ? .green: .white)
                                         .font(.title2)
                                         .fontWeight(.bold)
-                                        .padding(.horizontal, 5)
+                                        .padding(.horizontals, 5)
                                         .padding(.vertical, 3)
                                     Text(items.title)
                                         .font(.title2)

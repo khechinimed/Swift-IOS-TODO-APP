@@ -113,7 +113,6 @@ extension SigninViewModel{
                 if error == nil{
                     withAnimation{
                         self.FetchData()
-                        
                     }
                 }
             }
@@ -122,12 +121,14 @@ extension SigninViewModel{
     
     func DeletTask(toDelet: ToDoModel) {
         let db = Firestore.firestore()
-            
-            db.collection("Task").document(toDelet.id).delete { error in
+        
+        db.collection("Task").document(toDelet.id).delete { [self] error in
             if let error = error {
                 print("Error deleting task: \(error.localizedDescription)")
             } else {
                 print("Task deleted successfully.")
+                // Remove the task from the todoList
+                self.todoList.removeAll { $0.id == toDelet.id }
             }
         }
     }
