@@ -32,6 +32,7 @@
 		98D873F72A2E0B9B000EC52B /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 98D873F52A2E0B9B000EC52B /* MainInterface.storyboard */; };
 		98D873FB2A2E0B9B000EC52B /* todoList.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 98D873EF2A2E0B9B000EC52B /* todoList.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		98D874042A2E2B8F000EC52B /* ToDoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D874032A2E2B8F000EC52B /* ToDoModel.swift */; };
+		98D874062A2F3267000EC52B /* SaveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98D874052A2F3267000EC52B /* SaveView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,7 @@
 		98D873F62A2E0B9B000EC52B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		98D873F82A2E0B9B000EC52B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		98D874032A2E2B8F000EC52B /* ToDoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoModel.swift; sourceTree = "<group>"; };
+		98D874052A2F3267000EC52B /* SaveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +215,7 @@
 			children = (
 				98D873DE2A2AC9AB000EC52B /* ContentView.swift */,
 				98D873E52A2B96ED000EC52B /* TaskView.swift */,
+				98D874052A2F3267000EC52B /* SaveView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 			files = (
 				98D873D42A29631B000EC52B /* SigninViewModel.swift in Sources */,
 				98D873DF2A2AC9AB000EC52B /* ContentView.swift in Sources */,
+				98D874062A2F3267000EC52B /* SaveView.swift in Sources */,
 				98D8739D2A295729000EC52B /* ViewController.swift in Sources */,
 				98D873E62A2B96ED000EC52B /* TaskView.swift in Sources */,
 				98D873992A295729000EC52B /* AppDelegate.swift in Sources */,
