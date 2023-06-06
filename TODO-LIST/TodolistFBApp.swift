@@ -12,13 +12,17 @@ import FirebaseAuth
 
 @main
 struct TodolistFBApp: App{
+    
     @StateObject var signinViewModel = SigninViewModel()
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
+    @AppStorage ("log_state") var log_state = true
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(signinViewModel)
+            ZStack{
+                ContentView()
+            }
+            .environmentObject(signinViewModel)
         }
     }
 }
@@ -29,5 +33,9 @@ class AppDelegate:NSObject, UIApplicationDelegate{
     Bool{
         FirebaseApp.configure()
         return true
+    }
+    
+    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+      return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 }

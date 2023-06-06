@@ -14,6 +14,7 @@ struct  TaskView: View {
     @EnvironmentObject var signinViewmodel : SigninViewModel
     @AppStorage("log_State") var log_State = false
     @State var Delet :Bool = false
+    @State var textfield = ""
     var body: some View{
         ZStack {
             Image("TaskView")
@@ -101,10 +102,15 @@ struct  TaskView: View {
                 }
             }
             
+            .padding(.horizontal, 10)
+            if Sheet{
+                SaveView(Sheet: $Sheet, textfiled: $textfield)
+            }
+            
             
             
         }
-        .background(Color("black"))
+        
     }
 }
 

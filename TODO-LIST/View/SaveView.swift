@@ -40,7 +40,13 @@ struct SaveView: View {
                 Text("Save").bold()
                     .foregroundColor(.black)
             })
+            .buttonStyle(.bordered)
         }
+        
+        .padding()
+        .frame(width: 300, height: 150)
+        
+        
     }
 }
 

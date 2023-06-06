@@ -14,7 +14,7 @@ import AuthenticationServices
 
 class SigninViewModel: ObservableObject {
     @Published var todoList:[ToDoModel] = []
-    @AppStorage("log_State") var log_State = false
+    @AppStorage("log_State") var log_State = true
     @Published var nonce = ""
     @Published var done = false
     init(){
