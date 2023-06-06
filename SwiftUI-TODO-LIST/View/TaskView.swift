@@ -47,7 +47,7 @@ struct  TaskView: View {
                                         .foregroundColor(items.done ? .green: .white)
                                         .font(.title2)
                                         .fontWeight(.bold)
-                                        .padding(.horizontals, 5)
+                                        .padding(.horizontal, 5)
                                         .padding(.vertical, 3)
                                     Text(items.title)
                                         .font(.title2)
