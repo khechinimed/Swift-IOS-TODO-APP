@@ -10,6 +10,7 @@ import SwiftUI
 
 
 struct  TaskView: View {
+    @State var Sheet = false
     @EnvironmentObject var signinViewmodel : SigninViewModel
     @AppStorage("log_State") var log_State = false
     @State var Delet :Bool = false
@@ -82,7 +83,25 @@ struct  TaskView: View {
                     }
                 }
                 Spacer()
+                
+                HStack{
+                    Spacer()
+                    ZStack{
+                        Circle()
+                            .frame(width: 70, height: 70)
+                            .foregroundColor(.white)
+                        Image(systemName: "plus")
+                            .font(.title2)
+                            .fontWeight(.bold)
+                            .foregroundColor(.black)
+                            .onTapGesture {
+                                Sheet.toggle()
+                            }
+                    }
+                }
             }
+            
+            
             
         }
         .background(Color("black"))
